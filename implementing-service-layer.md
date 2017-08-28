@@ -72,7 +72,7 @@ class UserService implements UserServiceInterface
 
     public function register(array $data)
     {
-        UserModel::insert($data);
+        UserModel::create($data);
         $this->logService->log('Registration successful');
     }
 }
