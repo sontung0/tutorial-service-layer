@@ -64,7 +64,7 @@ class LogService implements LogServiceInterface
 {
     public function log($message)
     {
-        // log message
+        LogModel::create($message);
     }
 }
 ```
@@ -91,7 +91,7 @@ class UserService implements UserServiceInterface
 
     public function register(array $data)
     {
-        // DB::insert('users', $data);
+        UserModel::insert($data);
         $this->logService->log('Registration successful');
     }
 }
