@@ -1,4 +1,4 @@
-<h1 align="center">Service Layer</h1>
+<h1 align="center">Implementing Service Layer</h1>
 
 ### Controller
 
@@ -95,4 +95,4 @@ class UserService implements UserServiceInterface
         $this->logService->log('Registration successful');
     }
 }
-...
+```
