@@ -1,24 +1,5 @@
 <h1 align="center">Implementing Service Layer</h1>
 
-### Controller
-
-```php
-class Controller
-{
-    protected $service;
-
-    public function __construct()
-    {
-        $this->service = new ServiceManager();
-    }
-
-    public function register()
-    {
-        return $this->service->user()->register($data);
-    }
-}
-```
-
 ### Service Manager
 
 ```php
@@ -93,6 +74,25 @@ class UserService implements UserServiceInterface
     {
         UserModel::insert($data);
         $this->logService->log('Registration successful');
+    }
+}
+```
+
+### Controller
+
+```php
+class Controller
+{
+    protected $service;
+
+    public function __construct()
+    {
+        $this->service = new ServiceManager();
+    }
+
+    public function register()
+    {
+        return $this->service->user()->register($data);
     }
 }
 ```
