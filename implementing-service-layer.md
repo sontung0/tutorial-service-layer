@@ -1,38 +1,5 @@
 <h1 align="center">Implementing Service Layer</h1>
 
-### Service Manager
-
-```php
-class ServiceManager
-{
-    /**
-     * @var LogServiceInterface
-     */
-    protected $log;
-
-    /**
-     * @var UserServiceInterface
-     */
-    protected $user;
-
-    public function __construct()
-    {
-        $this->log = new LogService();
-        $this->user = new UserService($this->log);
-    }
-
-    public function log()
-    {
-        return $this->log;
-    }
-
-    public function user()
-    {
-        return $this->user;
-    }
-}
-```
-
 ### Log Service
 
 ```php
@@ -74,6 +41,39 @@ class UserService implements UserServiceInterface
     {
         UserModel::create($data);
         $this->logService->log('Registration successful');
+    }
+}
+```
+
+### Service Manager
+
+```php
+class ServiceManager
+{
+    /**
+     * @var LogServiceInterface
+     */
+    protected $log;
+
+    /**
+     * @var UserServiceInterface
+     */
+    protected $user;
+
+    public function __construct()
+    {
+        $this->log = new LogService();
+        $this->user = new UserService($this->log);
+    }
+
+    public function log()
+    {
+        return $this->log;
+    }
+
+    public function user()
+    {
+        return $this->user;
     }
 }
 ```
